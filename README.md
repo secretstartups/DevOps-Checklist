@@ -10,11 +10,14 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] Codebases all have documentation both in a README and inline code
     - [ ] Getting access to various systems, codebases, portals, etc to do their job is not a complex task.  Ideally all delegated and granted access through OAuth / LDAP.
     - [ ] Diagramming / Flowcharting / ERD / Wireframes
+    - [ ] In-Cluster Development
+    - [ ] Developer Velocity Tools (BackStage, or similar)
 - [ ] New service creation is simple due to…
     - [ ] Defined company-wide standards for code (language-specific)
     - [ ] Defined company-wide standards for automation (language-specific)
     - [ ] Defined company-wide standards for service deployment
     - [ ] Minimal or zero requirement for new dependent services to be created by some dedicated (eg: DevOps) team.  Developers should be allowed and encouraged to submit a MR for the IaC repo to add whatever is necessary (eg: add a new MySQL (RDS) server).  And/or this task should be dead-simple and take seconds/minutes to accomplish by a DevOps personnel
+    - [ ] Standards are packaged, SCM-managed, and made available for consumption downstream
 - [ ] Services are built for reliability, maintainability and scalability from day-one
     - [ ] All software is built for high-availability (multiple concurrent servers/containers with autoscaling, fault-tolerance, failover, etc)
     - [ ] Requests which need processing time can and should be delegated to a background worker and/or task engine technology
@@ -56,7 +59,7 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] Require maintainer / owner / peer(s) to approve before being allowed to merge
     - [ ] Make squashing code from Merge Requests mandatory to keep a clean git history in your master branch and remove “merge commits”.
 - [ ] Service deployments are using zero-downtime mechanism such as Blue/Green or Canary
-- [ ] Using the best tool for the job, for each individual concern is often better than trying to use one tool for every job (eg: Ansible or Bash fanatics that use it for literally everything).
+- [ ] Using the best tool for the job, for each individual concern is often better than trying to use one tool for every job
 - [ ] Having NO (or minimal) tools with overlapping responsibilities. (Eg: Not having more than one CI system, more than one SCM, more than one Cloud Provider (unless HA dictates it), not more than one automation tool, testing tool, deployment tool, monitoring tool, etc).
 - [ ] Every aspect of an environment has resiliency, redundancy, health checks, monitoring, alerting, auto-healing capabilities and backups from day one.
 - [ ] Deploys are painless, single-click or fully automated, no humans are involved and no human error is possible.  Removing access from humans to even be able to deploy (besides clicking the deploy button)
@@ -69,7 +72,8 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] Where dependencies occur especially external ones (SaaS cloud services) ensure your service can tolerate limited or no availability of such service.  This typically requires testing.
 - [ ] Having circuit breakers / feature flags in place to detect and act/react accordingly if certain features or dependent services are down.  Allowing your application to fail gracefully and/or certain features to be temporarily unavailable while a fix is underway
 - [ ] All environments/services are built securely (IAM, Service Accounts, Roles, Security Groups, etc)
-    - [ ] All services have HTTPS / SSL, with no exception
+    - [ ] All services have HTTPS/SSL/TLS, with no exception
+    - [ ] Encryption is implemented for all Data-at-Rest
     - [ ] All endpoints and nodes are firewalled as much as possible
     - [ ] Services / Servers / Etc is designed with least-privilege in mind
     - [ ] Based on current provider, using their best-practice technologies/methodologies
@@ -83,8 +87,7 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] Eg: If you’re using MySQL in many places, unless your company goal is to change this underlying technology then keep using it on new services.  Don’t suddenly go add PostgreSQL, and then also don’t go add Oracle as well.
 - [ ] Secrets are managed centrally and via some automation (Eg: Vault / AWS KMS)
 - [ ] All developers can access all systems even on production to monitor, maintain and debug.  If desired, using role/group based access limits their access to only specific components/areas.
+    - [ ] Ideally, the use of a Developer Velocity Platform which exposes service telemetry, logs, and other useful data for troubleshooting
 - [ ] For releasing software focus on small deploys (merge requests) and avoid big-bangs, break up big-bangs into smaller increments when possible
     - [ ] Aim for numerous deploys weekly.  A deploy once every two weeks (length of a typical “sprint” in agile) can have so many changes at the same time that it can be hard to single out which of those caused an issue.
 - [ ] Avoid TRACE/DEBUG logging on Production environments to prevent wasted space in logging systems, ideally disable on dev as well but make it easy to enable if needed (feature-flag)
-
-Input welcome!  If you have comments, issues, additions, etc. please file them in this repo!
