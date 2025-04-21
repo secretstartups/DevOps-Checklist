@@ -34,6 +34,7 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] Has automated testing of some kind (unit, end to end, acceptance, etc)
     - [ ] Uses continuous integration to automatically verify code is within standards and passes all tests before allowing merges and/or deploys
     - [ ] All code is DRY (Don’t Repeat Yourself).  Library code is in a shared codebase / module if needed for re-use across multiple projects.
+    - [ ] gitOps-driven Single Source Of Truth for IaC, Code, Configs, Documentation, Websites, etc
     - [ ] KISS.  Keep it simple, stupid.  Don’t over or re-engineer something if there’s an existing project, module, library out there to do 99% of what you need.  Use existing technologies, modules, libraries and standards as often as possible, minimize your work to only domain-specific nuances as much as possible.
 - [ ] Code is modular
     - [ ] Pieces of the codebase are engineered with modularity in mind from day-one
@@ -62,11 +63,16 @@ This list is intended as an end-goal for any organization.  With combined effort
 - [ ] Using the best tool for the job, for each individual concern is often better than trying to use one tool for every job
 - [ ] Having NO (or minimal) tools with overlapping responsibilities. (Eg: Not having more than one CI system, more than one SCM, more than one Cloud Provider (unless HA dictates it), not more than one automation tool, testing tool, deployment tool, monitoring tool, etc).
 - [ ] Every aspect of an environment has resiliency, redundancy, health checks, monitoring, alerting, auto-healing capabilities and backups from day one.
+- [ ] Observability Tools are easy to use, and enriched with relevant data, and expose feature-rich APIs
 - [ ] Deploys are painless, single-click or fully automated, no humans are involved and no human error is possible.  Removing access from humans to even be able to deploy (besides clicking the deploy button)
 - [ ] Rollbacks are painless, single-click or fully automated.  Is well-documented if necessary and recommend testing/validating these function before going live with any new service.
 - [ ] Robust tests for any/all aspects of code (IaC / backend / API / frontend)
 - [ ] Automated performance (load/soak) testing in place, run regularly, preferably automatically on every major release candidate or merge request to compare to baseline
 - [ ] Multi-faceted monitoring solution in place, monitoring typically USE/RED metrics and/or traditional server metrics where relevant.
+    - [ ] Monitoring solution should be redundant, and should monitor application-stacks from both within and outside environments
+    - [ ] Alerting should be rational, minimise flapping and false-positives/negatives, and be auto-directed to on-call engineer
+    - [ ] Support staff sufficiently knowledgeable and contextually aware to solve issues
+    - [ ] Clear escalation paths documented, with automated switch-over between on-call engineers
 - [ ] Custom application monitoring & metrics in place to detect sub-service failures / outages
 - [ ] All applications should be (as) self-contained as possible without being dependent on other applications to minimize complexity and potential downtime.
     - [ ] Where dependencies occur especially external ones (SaaS cloud services) ensure your service can tolerate limited or no availability of such service.  This typically requires testing.
@@ -86,8 +92,15 @@ This list is intended as an end-goal for any organization.  With combined effort
 - [ ] Environments are as simple as they can be, using the least amount of technologies possible while still accomplishing the goal (KISS).  Also consider the value of having consistency of dependencies across multiple services, this gives your company and team more collective experience and knowledge in one technology and will usually result in higher velocity and reliability.
     - [ ] Eg: If you’re using MySQL in many places, unless your company goal is to change this underlying technology then keep using it on new services.  Don’t suddenly go add PostgreSQL, and then also don’t go add Oracle as well.
 - [ ] Secrets are managed centrally and via some automation (Eg: Vault / AWS KMS)
+- [ ] Shift-Left mentality should be implemented across SSDLC lifecycle and DevSecFinOps processes
 - [ ] All developers can access all systems even on production to monitor, maintain and debug.  If desired, using role/group based access limits their access to only specific components/areas.
     - [ ] Ideally, the use of a Developer Velocity Platform which exposes service telemetry, logs, and other useful data for troubleshooting
 - [ ] For releasing software focus on small deploys (merge requests) and avoid big-bangs, break up big-bangs into smaller increments when possible
     - [ ] Aim for numerous deploys weekly.  A deploy once every two weeks (length of a typical “sprint” in agile) can have so many changes at the same time that it can be hard to single out which of those caused an issue.
 - [ ] Avoid TRACE/DEBUG logging on Production environments to prevent wasted space in logging systems, ideally disable on dev as well but make it easy to enable if needed (feature-flag)
+- [ ] DevOps team should continously review systems and processes against DORA KPIs, taking action to close gaps and address inefficiencies when appropriate
+- [ ] Education
+    - [ ] DevOps tools and processes should be diseminated across R&D teams on an ongoing basis
+    - [ ] Recordings of all sessions should be uploaded, and made available to all interested parties
+    - [ ] Recordings should be reviewed quarterly for relevance, and updated when necessary
+    - [ ] AI tools should be introduced, where appropriate, to improve experience, and make content more easily searchable
