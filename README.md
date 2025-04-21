@@ -4,6 +4,7 @@ Being that DevOps isn't any one thing, it's good to have a checklist as a remind
 This list is intended as an end-goal for any organization.  With combined effort of the teams, over time you should be able to achieve most, or all of the following.
 
 - [ ] All environments are built for zero-downtime from day-one
+- [ ] Minimal variance between environments, and useful service abstraction technologies
 - [ ] All infrastructure is contractual, repeatable and reliable (Infrastructure as Code (IaC), eg: Terraform / CloudFormation).  **Nothing** is setup manually.
 - [ ] New employee spin-up time is minimal due to…
     - [ ] Codebases all have coding standards defined and linting automatically
@@ -66,6 +67,21 @@ This list is intended as an end-goal for any organization.  With combined effort
 - [ ] Observability Tools are easy to use, and enriched with relevant data, and expose feature-rich APIs
 - [ ] Deploys are painless, single-click or fully automated, no humans are involved and no human error is possible.  Removing access from humans to even be able to deploy (besides clicking the deploy button)
 - [ ] Rollbacks are painless, single-click or fully automated.  Is well-documented if necessary and recommend testing/validating these function before going live with any new service.
+- [ ] IAM
+    - [ ] Quarterly Audit
+    - [ ] Use of MFA mandatory for all humans
+    - [ ] static credentials eradicated from lifecycles
+    - [ ] ZeroTrust implemented globally
+    - [ ] Automated Audit Scanning for outliers
+    - [ ] LeastPrivilege per user, service, pod
+- [ ] DR systems
+    - [ ] meets company requirements re key metrics inc. RTO, RPO, etc
+    - [ ] tested quarterly
+- [ ] Cost Optimisation/FinOps
+    - [ ] implemeted across all systems
+    - [ ] rightsizing evaluated quarterly
+    - [ ] tagging and cost allocation strategy enforced programatically
+    - [ ] relevant discounts requested and applied
 - [ ] Robust tests for any/all aspects of code (IaC / backend / API / frontend)
 - [ ] Automated performance (load/soak) testing in place, run regularly, preferably automatically on every major release candidate or merge request to compare to baseline
 - [ ] Multi-faceted monitoring solution in place, monitoring typically USE/RED metrics and/or traditional server metrics where relevant.
@@ -99,6 +115,10 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] Aim for numerous deploys weekly.  A deploy once every two weeks (length of a typical “sprint” in agile) can have so many changes at the same time that it can be hard to single out which of those caused an issue.
 - [ ] Avoid TRACE/DEBUG logging on Production environments to prevent wasted space in logging systems, ideally disable on dev as well but make it easy to enable if needed (feature-flag)
 - [ ] DevOps team should continously review systems and processes against DORA KPIs, taking action to close gaps and address inefficiencies when appropriate
+- [ ] Remote Deployment Support
+    - Technologies in use
+    - Automated Upgrade/Downgrade/Provision/Deprovision
+    - Monitoring/Proactive Support mechanisms
 - [ ] Education
     - [ ] DevOps tools and processes should be diseminated across R&D teams on an ongoing basis
     - [ ] Recordings of all sessions should be uploaded, and made available to all interested parties
