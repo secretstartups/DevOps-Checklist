@@ -1,32 +1,44 @@
 # DevOps Checklist
-Being that DevOps isn't any one thing, it's good to have a checklist as a reminder for everyone to work towards and understand.
 
-This list is intended as an end-goal for any organization.  With combined effort of the teams, over time you should be able to achieve most, or all of the following.
+This is an effort to begin codifying an authoritative technical 'Pilots Checklist' for DevSecFinOps practices.
 
+In the age of AI, and so much OpenSource, we tried to 'Google' and 'ChatGPT' a helpful list, but failed. This, then, aims to be an amalgum of a variety of sources, including https://devopschecklist.com/, https://devops.com, linearloop.com, Google's DORA metrics, https://atlassian.com, and more.
+
+We would appreciate and encourage contributions from the community!
+
+
+## Technical 
 - [ ] All environments are built for zero-downtime from day-one
-- [ ] Minimal variance between environments, and useful service abstraction technologies
+- [ ] Minimal variance between environments
+- [ ] Implementation of abstraction technologies to accelerate new environment creation, increate development velocity, and reduce documentation needs
 - [ ] All infrastructure is contractual, repeatable and reliable (Infrastructure as Code (IaC), eg: Terraform / CloudFormation).  **Nothing** is setup manually.
 - [ ] New employee spin-up time is minimal due to…
     - [ ] Codebases all have coding standards defined and linting automatically
     - [ ] Codebases all have documentation both in a README and inline code
-    - [ ] Getting access to various systems, codebases, portals, etc to do their job is not a complex task.  Ideally all delegated and granted access through OAuth / LDAP.
+    - [ ] Getting access to various systems, codebases, portals, etc to do their job is not a complex task.  Ideally all delegated and granted access through SSO / OAuth.
     - [ ] Diagramming / Flowcharting / ERD / Wireframes
     - [ ] In-Cluster Development
     - [ ] Developer Velocity Tools (BackStage, or similar)
 - [ ] New service creation is simple due to…
     - [ ] Defined company-wide standards for code (language-specific)
+        - [ ] I.e. GitRepo templates per language, along with all relevant best practices
     - [ ] Defined company-wide standards for automation (language-specific)
+        - [ ] I.e. Reusable helm charts; modular, opinionated IaC; GitOps-driven workflows everywhere
     - [ ] Defined company-wide standards for service deployment
-    - [ ] Minimal or zero requirement for new dependent services to be created by some dedicated (eg: DevOps) team.  Developers should be allowed and encouraged to submit a MR for the IaC repo to add whatever is necessary (eg: add a new MySQL (RDS) server).  And/or this task should be dead-simple and take seconds/minutes to accomplish by a DevOps personnel
+        - [ ] I.e. Full CI/CD automation, with well-disseminated education re usage and user contribution
+    - [ ] Developer Self-Service Framework/Platform
     - [ ] Standards are packaged, SCM-managed, and made available for consumption downstream
 - [ ] Services are built for reliability, maintainability and scalability from day-one
     - [ ] All software is built for high-availability (multiple concurrent servers/containers with autoscaling, fault-tolerance, failover, etc)
     - [ ] Requests which need processing time can and should be delegated to a background worker and/or task engine technology
     - [ ] Code is maintainable (see below)
     - [ ] Code is modular (see below)
+    - [ ] Code is secure (security scanning used across CI pipeline)
+    - [ ] Code is Cloud Agnostic (where possible)
     - [ ] Has testing built-into the codebase which is used automatically by CI and is required to run before merges are accepted
     - [ ] Deploys automatically from CI with definition files stored in the codebase
     - [ ] Deployments are configurable per service, environment, deployment, developer
+    - [ ] Deployments are aggressively optimised for performance and cost
     - [ ] Above is done in a way which is digestible and accessible for ALL engineers
 - [ ] Code is maintainable
     - [ ] Using language formatting/styling best-practices and standards (per-language)
@@ -37,7 +49,7 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] All code is DRY (Don’t Repeat Yourself).  Library code is in a shared codebase / module if needed for re-use across multiple projects.
     - [ ] gitOps-driven Single Source Of Truth for IaC, Code, Configs, Documentation, Websites, etc
     - [ ] KISS.  Keep it simple, stupid.  Don’t over or re-engineer something if there’s an existing project, module, library out there to do 99% of what you need.  Use existing technologies, modules, libraries and standards as often as possible, minimize your work to only domain-specific nuances as much as possible.
-- [ ] Code is modular
+- [ ] Code Modularity
     - [ ] Pieces of the codebase are engineered with modularity in mind from day-one
     - [ ] Libraries should be able to be re-used in other projects as a simple drop-in
 - [ ] Documentation & Diagramming should be available…
@@ -48,6 +60,7 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] For deployment and rollback workflow
     - [ ] For edge cases
     - [ ] For Disaster Recovery
+    - [ ] ... and should, ideally, be auto-generated.
 - [ ] Infrastructure deployments and modifications are fully automated/scripted
     - [ ] Not a single thing on any cloud service you use should be manually configured, ideally even remove permissions from anyone to even have write access to your cloud service (except for key individuals for emergencies).  There are rare exceptions to this however.
     - [ ] Do not run kubectl apply / terraform apply on your own terminal to apply changes to any environment (except briefly during testing/development)
@@ -63,8 +76,8 @@ This list is intended as an end-goal for any organization.  With combined effort
 - [ ] Service deployments are using zero-downtime mechanism such as Blue/Green or Canary
 - [ ] Using the best tool for the job, for each individual concern is often better than trying to use one tool for every job
 - [ ] Having NO (or minimal) tools with overlapping responsibilities. (Eg: Not having more than one CI system, more than one SCM, more than one Cloud Provider (unless HA dictates it), not more than one automation tool, testing tool, deployment tool, monitoring tool, etc).
-- [ ] Every aspect of an environment has resiliency, redundancy, health checks, monitoring, alerting, auto-healing capabilities and backups from day one.
-- [ ] Observability Tools are easy to use, and enriched with relevant data, and expose feature-rich APIs
+- [ ] Every aspect of an environment has resiliency, redundancy, health checks, monitoring, alerting, cost-optimisation, auto-healing capabilities and backups from day one.
+- [ ] Observability Tools are easy to use, enriched with relevant data, and expose feature-rich APIs
 - [ ] Deploys are painless, single-click or fully automated, no humans are involved and no human error is possible.  Removing access from humans to even be able to deploy (besides clicking the deploy button)
 - [ ] Rollbacks are painless, single-click or fully automated.  Is well-documented if necessary and recommend testing/validating these function before going live with any new service.
 - [ ] IAM
@@ -77,6 +90,7 @@ This list is intended as an end-goal for any organization.  With combined effort
 - [ ] DR systems
     - [ ] meets company requirements re key metrics inc. RTO, RPO, etc
     - [ ] tested quarterly
+    - [ ] Optimised for cost and performance objectives
 - [ ] Cost Optimisation/FinOps
     - [ ] implemeted across all systems
     - [ ] rightsizing evaluated quarterly
@@ -101,12 +115,14 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] Based on current provider, using their best-practice technologies/methodologies
     - [ ] Everything leaves an audit trail (Services / Services / Users) which is not editable by anyone (eg: push all logs to external aws account s3 bucket, no one with delete access only write, and no overwrite allowed)
 - [ ] All services logging to a centralized logging platform, with read-only access given to engineers necessary to perform debugging/maintenance/etc
-- [ ] Never have secrets in any codebases
+- [ ] Secret-free codebase
+- [ ] Codebase contains sane default (but overrideable) values
 - [ ] Remove secrets & private data from logs / regularly audit the presence of these
 - [ ] Using a standardized log format (EG: json) for parsability in a centralized logging platform
 - [ ] Environments and services are architected based on gathered use-cases/requirements and team skill-sets not a line drawn in the sand or a hard requirement
 - [ ] Environments are as simple as they can be, using the least amount of technologies possible while still accomplishing the goal (KISS).  Also consider the value of having consistency of dependencies across multiple services, this gives your company and team more collective experience and knowledge in one technology and will usually result in higher velocity and reliability.
     - [ ] Eg: If you’re using MySQL in many places, unless your company goal is to change this underlying technology then keep using it on new services.  Don’t suddenly go add PostgreSQL, and then also don’t go add Oracle as well.
+    - [ ] Clear path to sunsetting use of redundant technologies
 - [ ] Secrets are managed centrally and via some automation (Eg: Vault / AWS KMS)
 - [ ] Shift-Left mentality should be implemented across SSDLC lifecycle and DevSecFinOps processes
 - [ ] All developers can access all systems even on production to monitor, maintain and debug.  If desired, using role/group based access limits their access to only specific components/areas.
@@ -124,3 +140,8 @@ This list is intended as an end-goal for any organization.  With combined effort
     - [ ] Recordings of all sessions should be uploaded, and made available to all interested parties
     - [ ] Recordings should be reviewed quarterly for relevance, and updated when necessary
     - [ ] AI tools should be introduced, where appropriate, to improve experience, and make content more easily searchable
+
+
+
+
+This checklist was originally inspired by: https://github.com/DevOps-Nirvana/DevOps-Checklist
