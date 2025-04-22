@@ -2,7 +2,7 @@
 
 This is an effort to begin codifying an authoritative technical 'Pilots Checklist' for DevSecFinOps practices.
 
-In the age of AI, and so much OpenSource, we tried to 'Google' and 'ChatGPT' a helpful list, but failed. This, then, aims to be an amalgum of a variety of sources, including https://devopschecklist.com/, https://devops.com, linearloop.com, Google's DORA metrics, https://atlassian.com, and more.
+In the age of AI, and so much OpenSource, we tried to 'Google' and 'ChatGPT' a helpful list, but failed. This, then, aims to be an amalgum of content from a variety of sources, including https://devopschecklist.com/, https://devops.com, https://linearloop.com, Google's DORA metrics, https://atlassian.com, and more.
 
 We would appreciate and encourage contributions from the community!
 
