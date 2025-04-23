@@ -6,6 +6,30 @@ In the age of AI, and so much OpenSource, we tried to 'Google' and 'ChatGPT' a h
 
 We would appreciate and encourage contributions from the community!
 
+## High-Level Health Metrics
+- [ ] Deployment Frequency (DFreq)
+- [ ] Time between Acceptance & Deployment
+- [ ] Deployment Failure Frequency (DFF)
+    - [ ] Build Failure Frequency
+    - [ ] Defect Escape Rate (bugs making it to production)
+- [ ] Time to Recover from Failure (MTTR)
+- [ ] Mean Time to Detect (MTTD) - Avg time to detect incidents or failures
+- [ ] Code Coverage (Testing)
+- [ ] System Availability/Uptime
+- [ ] Mean Time Between Failures (MTBG) - Avg time between failures, indicating reliability
+- [ ] Incident Volume - Number of incidents over a period, showing operational stability
+- [ ] Error Rate - Percentage of failed requests or errors relative to total requests (HTTP Errors, SQL errors, etc)
+- [ ] Latency/Response Time - time taken for the system to respond to requests, critical for user experience
+- [ ] Throughput - Amount of work completed or requests handled in a given timeframe
+- [ ] Resource Utilisation - Usage of CPU, memory, and other resources, helping to identify performance bottlenecks
+- [ ] Vulnerability Remediation Time - time taken to fix security vulnerabilities after discovery
+- [ ] Cycle Time - Total time from work start to delivery, broader than DORA's lead time
+- [ ] Pull Request (PR) Size - Avg size of code changes, with smaller PRs generally indicating smoother reviews and deployments
+- [ ] Coding Time - Time spent actively writing code, useful for workflow analysis
+- [ ] Change Volume - Number of changes or deployments by project, team, or developer
+- [ ] Application Usage - number of users or transactions, helping to assess system load and feature adoption
+- [ ] Traffic Metrics - Requests per second, active users, or similar indicators of system demand
+
 
 ## Technical 
 - [ ] All environments are built for zero-downtime from day-one
