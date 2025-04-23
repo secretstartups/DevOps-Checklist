@@ -155,6 +155,7 @@ We would appreciate and encourage contributions from the community!
     - [ ] Aim for numerous deploys weekly.  A deploy once every two weeks (length of a typical “sprint” in agile) can have so many changes at the same time that it can be hard to single out which of those caused an issue.
 - [ ] Avoid TRACE/DEBUG logging on Production environments to prevent wasted space in logging systems, ideally disable on dev as well but make it easy to enable if needed (feature-flag)
 - [ ] DevOps team should continously review systems and processes against DORA KPIs, taking action to close gaps and address inefficiencies when appropriate
+- [ ] Clear stakeholder roles & responsibilities regarding CI process
 - [ ] Remote Deployment Support
     - Technologies in use
     - Automated Upgrade/Downgrade/Provision/Deprovision
