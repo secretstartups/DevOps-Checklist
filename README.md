@@ -4,6 +4,8 @@ This is an effort to begin codifying an authoritative technical 'Pilots Checklis
 
 Please note that this checklist is made up of two parts, one of which is intended as more of a executive overview and is formatted as a Google Document (https://docs.google.com/document/d/1sao0FEQh4IFZDzUEvPtZm582OFOb4R0sv2mfnxaID6g/edit?usp=sharing). The second, which you can find below, will be structured as a technical checklist that can be worked through by a DevOps Engineering Team.
 
+Our intention is to better organise the list below into (sub)sections over the coming weeks.
+
 We would appreciate and encourage contributions from the community!
 
 ## High-Level Health Metrics
