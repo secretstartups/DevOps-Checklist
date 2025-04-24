@@ -2,7 +2,7 @@
 
 This is an effort to begin codifying an authoritative technical 'Pilots Checklist' for DevSecFinOps practices.
 
-In the age of AI, and so much OpenSource, we tried to 'Google' and 'ChatGPT' a helpful list, but failed. This, then, aims to be an amalgum of content from a variety of sources, including https://devopschecklist.com/, https://devops.com, https://linearloop.com, Google's DORA metrics, https://atlassian.com, and more.
+Please note that this checklist is made up of two parts, one of which is intended as more of a executive overview and is formatted as a Google Document (https://docs.google.com/document/d/1sao0FEQh4IFZDzUEvPtZm582OFOb4R0sv2mfnxaID6g/edit?usp=sharing). The second, which you can find below, will be structured as a technical checklist that can be worked through by a DevOps Engineering Team.
 
 We would appreciate and encourage contributions from the community!
 
